@@ -14,8 +14,8 @@ METHOD (bin, Binary_encode, CipherText)
   return 0;
 }
 
-
 METHOD (array, Binary_encode, DhtPacket) { return pending; }
+
 METHOD (array, Binary_encode, HostAddress) { return pending; }
 
 METHOD (u64, Binary_encode, Word64)
@@ -55,7 +55,6 @@ METHOD (array, Binary_encode, KeyPair)
 }
 
 #define PACKED_NODE_SIZE_IP6 (1 + SIZE_IP6 + sizeof(uint16_t) + crypto_box_PUBLICKEYBYTES)
-
 METHOD (array, Binary_encode, NodeInfo)
 {
   CHECK_SIZE (args, 3);
@@ -140,18 +139,25 @@ METHOD (array, Binary_encode, NodeInfo)
   return 0;
 }
 
-
 METHOD (bin, Binary_encode, NodesRequest) { return pending; }
-METHOD (array, Binary_encode, NodesResponse) { return pending; }
-METHOD (array, Binary_encode, Packet) { return pending; }
-METHOD (u64, Binary_encode, PacketKind) { return pending; }
-METHOD (u64, Binary_encode, PingPacket) { return pending; }
-METHOD (bin, Binary_encode, PlainText) { return pending; }
-METHOD (u64, Binary_encode, PortNumber) { return pending; }
-METHOD (array, Binary_encode, RpcPacket) { return pending; }
-METHOD (array, Binary_encode, SocketAddress) { return pending; }
-METHOD (u64, Binary_encode, TransportProtocol) { return pending; }
 
+METHOD (array, Binary_encode, NodesResponse) { return pending; }
+
+METHOD (array, Binary_encode, Packet) { return pending; }
+
+METHOD (u64, Binary_encode, PacketKind) { return pending; }
+
+METHOD (u64, Binary_encode, PingPacket) { return pending; }
+
+METHOD (bin, Binary_encode, PlainText) { return pending; }
+
+METHOD (u64, Binary_encode, PortNumber) { return pending; }
+
+METHOD (array, Binary_encode, RpcPacket) { return pending; }
+
+METHOD (array, Binary_encode, SocketAddress) { return pending; }
+
+METHOD (u64, Binary_encode, TransportProtocol) { return pending; }
 
 METHOD (array, Binary, encode)
 {

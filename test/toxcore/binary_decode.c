@@ -16,6 +16,7 @@ METHOD (bin, Binary_decode, CipherText)
 }
 
 METHOD (bin, Binary_decode, DhtPacket) { return pending; }
+
 METHOD (bin, Binary_decode, HostAddress) { return pending; }
 
 METHOD (bin, Binary_decode, Word64)
@@ -99,19 +100,25 @@ METHOD (bin, Binary_decode, NodeInfo)
   return 0;
 }
 
-
-
 METHOD (bin, Binary_decode, NodesRequest) { return pending; }
-METHOD (bin, Binary_decode, NodesResponse) { return pending; }
-METHOD (bin, Binary_decode, Packet) { return pending; }
-METHOD (bin, Binary_decode, PacketKind) { return pending; }
-METHOD (bin, Binary_decode, PingPacket) { return pending; }
-METHOD (bin, Binary_decode, PlainText) { return pending; }
-METHOD (bin, Binary_decode, PortNumber) { return pending; }
-METHOD (bin, Binary_decode, RpcPacket) { return pending; }
-METHOD (bin, Binary_decode, SocketAddress) { return pending; }
-METHOD (bin, Binary_decode, TransportProtocol) { return pending; }
 
+METHOD (bin, Binary_decode, NodesResponse) { return pending; }
+
+METHOD (bin, Binary_decode, Packet) { return pending; }
+
+METHOD (bin, Binary_decode, PacketKind) { return pending; }
+
+METHOD (bin, Binary_decode, PingPacket) { return pending; }
+
+METHOD (bin, Binary_decode, PlainText) { return pending; }
+
+METHOD (bin, Binary_decode, PortNumber) { return pending; }
+
+METHOD (bin, Binary_decode, RpcPacket) { return pending; }
+
+METHOD (bin, Binary_decode, SocketAddress) { return pending; }
+
+METHOD (bin, Binary_decode, TransportProtocol) { return pending; }
 
 METHOD (array, Binary, decode)
 {
