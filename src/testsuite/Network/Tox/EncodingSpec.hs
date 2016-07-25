@@ -3,11 +3,11 @@
 {-# LANGUAGE Trustworthy         #-}
 module Network.Tox.EncodingSpec where
 
-import           Control.Monad.IO.Class  (liftIO)
-import qualified Network.Tox.RPC         as RPC
-import qualified Network.Tox.RPCTest     as RPC
+import           Control.Monad.IO.Class (liftIO)
+import qualified Network.Tox.RPC        as RPC
+import qualified Network.Tox.RPCTest    as RPC
 import           Test.Hspec
-import           Test.QuickCheck         (Arbitrary, property)
+import           Test.QuickCheck        (Arbitrary, property)
 
 import           Data.Binary             (Binary)
 import qualified Data.Binary             as Binary (get, put)
@@ -21,7 +21,7 @@ import qualified Data.ByteString         as ByteString
 import qualified Data.ByteString.Lazy    as LazyByteString
 import           Data.Proxy              (Proxy (..))
 import           Data.Typeable           (Typeable)
-import           Data.Word               (Word8)
+import           Data.Word               (Word64, Word8)
 
 import qualified Network.Tox.Binary      as Binary
 import           Network.Tox.Crypto.Text (PlainText (..))
@@ -31,7 +31,7 @@ import           Network.Tox.Encoding    (BitEncoding, bitGet, bitPut, getBool,
 
 spec :: Spec
 spec = do
-  rpcSpec (Proxy :: Proxy Int)
+  rpcSpec (Proxy :: Proxy Word64)
   --binarySpec (Proxy :: Proxy Bool)
   binaryGetPutSpec "{get,put}Bool" getBool putBool
 
