@@ -14,7 +14,28 @@ METHOD (bin, Binary_encode, CipherText)
   return 0;
 }
 
-METHOD (array, Binary_encode, DhtPacket) { return pending; }
+METHOD (array, Binary_encode, DhtPacket)
+{
+
+  return pending; /* Seems to be untestable with toxcore */
+
+
+  CHECK_SIZE(args, 3);
+  CHECK_TYPE(args.ptr[0], MSGPACK_OBJECT_BIN);
+  CHECK_SIZE(args.ptr[0].via.bin, crypto_box_PUBLICKEYBYTES);
+  CHECK_TYPE(args.ptr[1], MSGPACK_OBJECT_BIN);
+  CHECK_SIZE(args.ptr[1].via.bin, crypto_box_NONCEBYTES);
+  CHECK_TYPE(args.ptr[2], MSGPACK_OBJECT_BIN);
+
+  int size;
+
+  SUCCESS {
+    msgpack_pack_bin(res, sizeof(size));
+    msgpack_pack_bin_body(res, &size, sizeof(size));
+  }
+
+  return 0;
+}
 
 METHOD (array, Binary_encode, HostAddress) { return pending; }
 

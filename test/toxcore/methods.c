@@ -71,7 +71,7 @@ METHOD (array, KeyPair, fromSecretKey)
 
 METHOD (array, Nonce, newNonce)
 {
-  uint8_t nonce[24] = { 0 };
+  uint8_t nonce[crypto_box_NONCEBYTES] = { 0 };
   new_nonce (nonce);
 
   SUCCESS {
@@ -89,7 +89,7 @@ METHOD (array, Nonce, increment)
   CHECK_TYPE (args.ptr[0], MSGPACK_OBJECT_BIN);
   CHECK_SIZE (args.ptr[0].via.bin, 24);
 
-  uint8_t nonce[24];
+  uint8_t nonce[crypto_box_NONCEBYTES];
   memcpy (nonce, args.ptr[0].via.bin.ptr, 24);
   increment_nonce (nonce);
 
