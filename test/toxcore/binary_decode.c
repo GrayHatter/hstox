@@ -3,7 +3,6 @@
 #include <DHT.h>
 
 METHOD(bin, Binary_decode, CipherText) {
-  uint64_t size = args.size;
   uint64_t length;
   uint64_t tmp;
 
@@ -11,7 +10,8 @@ METHOD(bin, Binary_decode, CipherText) {
     memcpy(&tmp, args.ptr, sizeof(uint64_t));
     length = be64toh(tmp);
 
-    if (size >= sizeof(uint64_t) && size == length + sizeof(uint64_t)) {
+    if (args.size >= sizeof(uint64_t) &&
+        args.size == length + sizeof(uint64_t)) {
       msgpack_pack_bin(res, args.size - sizeof(uint64_t));
       msgpack_pack_bin_body(res, args.ptr + sizeof(uint64_t),
                             args.size - sizeof(uint64_t));
